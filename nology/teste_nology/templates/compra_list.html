@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Teste Tecnico Nology - Compras
+{% endblock %}
+
+{% block content %}
+
+<div class="mt-8">
+    <h1 class="text-2xl font-bold">Lista de Compras</h1>
+    
+    {% if compras %}
+        <p><strong>IP do Cliente:</strong> {{ compras.0.ip_cliente }}</p>
+    {% endif %}
+        
+    
+    <div class="mt-8">
+        {% for compra in compras%}
+            <div class="border border-ngreen rounded-3xl p-4 mb-8">
+                <p><strong>Tipo de Cliente:</strong> {{ compra.tipo_cliente }}</p>
+                <p><strong>Valor da Compra:</strong> R$ {{ compra.valor_compra }}</p>
+                <p><strong>Valor do Cashback:</strong> R$ {{ compra.cashback }}</p>
+            </div>
+        {% empty %}
+            <p>Nenhuma compra registrada.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

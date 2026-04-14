@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Teste Tecnico Nology - Compras
+{% endblock %}
+
+{% block content %}
+
+<style>
+  select, input[type="number"] {
+    border: 1px solid #002c50;
+    border-radius: 0.375rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 100%;
+  }
+</style>
+
+<div class="flex flex-col items-center mt-8 gap-8">
+    <h1 class="text-2xl font-bold">Criar Compra</h1>
+  
+  <form method="post" class="space-y-8">
+  {% csrf_token %}
+
+  {% if form.non_field_errors %}
+    <div class="text-red-500">
+      {{ form.non_field_errors }}
+    </div>
+  {% endif %}
+
+  <div>
+    <label>Tipo de Cliente</label>
+    {{ form.tipo_cliente }}
+
+    {% for error in form.tipo_cliente.errors %}
+      <p class="text-red-500 text-sm">{{ error }}</p>
+    {% endfor %}
+  </div>
+
+  <div>
+    <label>Valor da Compra</label>
+    {{ form.valor_compra }}
+
+    {% for error in form.valor_compra.errors %}
+      <p class="text-red-500 text-sm">{{ error }}</p>
+    {% endfor %}
+  </div>
+
+  <button type="submit" class="bg-ngreen text-white px-4 py-2">
+    Salvar
+  </button>
+</form>
+
+</div>
+
+{% endblock %}

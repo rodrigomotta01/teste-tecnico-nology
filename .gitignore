@@ -1,0 +1,35 @@
+# --- Python ---
+__pycache__/
+*.pyc
+
+# Vs Code
+.vscode/
+
+# Banco de dados
+db.sqlite3
+db.sqlite3-journal
+
+# Fotos
+media/
+
+# --- Ambientes Virtuais  ---\
+env
+.env
+.venv/
+venv/
+env/
+ENV/
+Django.venv
+
+# --- Testes e IDE ---
+.pytest_cache/
+.vscode/
+.idea/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+Teste-Técnico-Nology.pdf

@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+        extend: {
+            colors: {
+            nwhite: '#F8F8F8',
+            nblack: '#1E1E1E',
+            nblue: '#002c50',
+            ngreen: '#0eb2ae',    
+            }
+        }
+        }
+    }
+    </script>
+    <title>{% block title %} Teste Tecnico Nology {% endblock %}</title>        
+</head>  
+<body class="bg-nwhite text-gray-900 min-h-screen flex flex-col">
+    {% if messages %}
+        <div id='msg' class="fixed top-4 right-4 z-50 space-y-2">
+            {% for message in messages %}
+                <div class="bg-green-500 text-nwhite px-4 py-2 rounded shadow fade-auto">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('msg').style.display = 'none';
+        }, 2500);
+    </script>
+    {% endif %}
+    <header class="bg-nblue p-4">
+        <div class="flex items-center justify-between relative">
+            
+            <!-- Esquerda -->
+            <div class="flex space-x-4 ml-40">
+            <a href="{% url 'listar_compras' %}" 
+                class="text-lg font-medium text-nwhite hover:underline">
+                Lista de Compras
+            </a>
+            </div>
+
+            <!-- Centro -->
+            <a href="{% url 'listar_compras' %}"
+            class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 pt-1">
+            <img src="{% static 'img/logonology.png' %}" 
+                 alt="Nology Logo" class="w-[85%] h-[85%]">
+            </a>
+
+            <!-- Direita -->
+            <div class="flex items-center space-x-4 mr-40">
+
+                <a href="{% url 'criar_compra' %}" 
+                    class="w-fit bg-ngreen rounded-3xl text-lg font-medium text-nwhite text-center py-1.5 px-3 hover:bg-nwhite hover:text-nblue transform hover:scale-105 transition duration-300">
+                    Criar Compra
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <main class="p-4 ml-40 mr-40">
+        {% block content %}
+        <!-- Conteúdo -->
+        {% endblock %}
+    </main>
+    <footer class="bg-nblue text-gray-100 p-2 mt-auto text-center">
+        &copy; 2025 Teste Tecnico Nology.
+    </footer>
+</body>
+</html>
+   
