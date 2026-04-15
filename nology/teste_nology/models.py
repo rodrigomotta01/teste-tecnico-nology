@@ -8,4 +8,4 @@ class Compra(models.Model):
     ])
     valor_compra = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     cashback = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    ip_cliente = models.GenericIPAddressField()
+    ip_cliente = models.GenericIPAddressField(null=True, blank=True)
