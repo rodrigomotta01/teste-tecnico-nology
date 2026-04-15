@@ -1,0 +1,1 @@
+web: gunicorn nology.wsgi:application
